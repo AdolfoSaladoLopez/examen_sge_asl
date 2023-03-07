@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+    <record model="cliente.model" id="cliente_id_uno">
+      <field name="nombre">Cliente Uno</field>
+      <field name="telefono">95200001</field>
+      <field name="direccion">Cesur, Málaga Este, 11</field>
+    </record>
+
+    <record model="cliente.model" id="cliente_id_dos">
+      <field name="nombre">Cliente Dos</field>
+      <field name="telefono">95200002</field>
+      <field name="direccion">Cesur, Málaga Este, 11</field>
+    </record>
+
+    <record model="factura.model" id="factura_id_uno">
+      <field name="numero">1</field>
+      <field name="fecha_emision"></field>
+      <field name="fecha_vencimiento">2023-10-10</field>
+      <field name="monto_total">30.00</field>
+      <field name="cliente_id" ref="cliente_id_uno"/>
+    </record>
+
+    <record model="factura.model" id="factura_id_dos">
+      <field name="numero">2</field>
+      <field name="fecha_emision"></field>
+      <field name="fecha_vencimiento">2023-10-10</field>
+      <field name="monto_total">40.00</field>
+      <field name="cliente_id" ref="cliente_id_dos"/>
+    </record>
+
+    <record model="producto.model" id="producto_id_uno">
+      <field name="nombre">Teléfono</field>
+      <field name="descripcion">iPhone 14</field>
+      <field name="precio">1500.00</field>
+    </record>
+
+    <record model="producto.model" id="producto_id_dos">
+      <field name="nombre">Teléfono</field>
+      <field name="descripcion">Samsung Galaxy S28</field>
+      <field name="precio">1400.00</field>
+    </record>
+
+  </data>
+</odoo>

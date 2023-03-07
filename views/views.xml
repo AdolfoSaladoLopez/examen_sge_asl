@@ -1,0 +1,118 @@
+<odoo>
+  <data>
+    <record id="cliente_arbol" model="ir.ui.view">
+      <field name="name">Cliente</field>
+      <field name="model">cliente.model</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="direccion"/>
+          <field name="ciudad"/>
+          <field name="estado"/>
+          <field name="codigo_postal"/>
+          <field name="pais"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="factura_arbol" model="ir.ui.view">
+      <field name="name">Factura</field>
+      <field name="model">factura.model</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="numero_factura"/>
+          <field name="fecha_emision"/>
+          <field name="fecha_vencimiento"/>
+          <field name="monto_total"/>
+          <field name="cliente_id"/>
+        </tree>
+      </field>
+    </record>
+
+    
+    <record id="producto_arbol" model="ir.ui.view">
+      <field name="name">Producto</field>
+      <field name="model">producto.model</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="descripcion"/>
+          <field name="precio"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="producto_formulario">
+      <field name="name">Formulario</field>
+      <field name="model">producto.model</field>
+      <field name="arch" type="xml">
+        <form string="Formulario Producto">
+          <sheet>
+            <group>
+              <group>
+                <separator string="Nombre" colspan="2"/>
+                <field name="nombre"/>
+              </group>
+
+              <group>
+                <separator string="Descripcion" colspan="2"/>
+                <field name="descripcion"/>
+              </group>
+
+              <group>
+                <separator string="precio" colspan="2"/>
+                <field name="precio"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="action_cliente" model="ir.actions.act_window">
+      <field name="name">Clientes</field>
+      <field name="res_model">cliente.model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_factura" model="ir.actions.act_window">
+      <field name="name">Facturas</field>
+      <field name="res_model">factura.model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_producto" model="ir.actions.act_window">
+      <field name="name">Productos</field>
+      <field name="res_model">producto.model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="menu_root" model="ir.ui.menu">
+      <field name="name">Módulo Adolfo</field>
+      <field name="sequence" eval="1"/>
+    </record>
+
+    <record id="menu1" model="ir.ui.menu">
+      <field name="name">Menu 1</field>
+      <field name="parent_id" ref="menu_root"/>
+      <field name="action" ref="action_cliente"/>
+      <field name="sequence" eval="1"/>
+    </record>
+
+    <record id="menu_menu2" model="ir.ui.menu">
+      <field name="name">Menu 2</field>
+      <field name="parent_id" ref="menu_root"/>
+      <field name="action" ref="action_factura"/>
+      <field name="sequence" eval="2"/>
+    </record>
+
+    <record id="menu_menu3" model="ir.ui.menu">
+      <field name="name">Menu 3</field>
+      <field name="parent_id" ref="menu_root"/>
+      <field name="action" ref="action_producto"/>
+      <field name="sequence" eval="3"/>
+    </record>
+
+  </data>
+</odoo>
